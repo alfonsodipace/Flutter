@@ -9,6 +9,7 @@ Most of the projects are exercises carried out following the Flutter course held
 - first_app added on 27/02/2021
 - meals_app added on 27/02/2021
 - personal_expenses_app added on 27/02/2021
+- shop_app added on 27/02/2021 (still in dev)
 
 # Implementation
 The apps are built in Flutter/Dart.
