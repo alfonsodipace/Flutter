@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import '../providers/product.dart';
 import 'package:provider/provider.dart';
+
 import '../screens/product_detail_screen.dart';
+import '../providers/product.dart';
 
 class ProductItem extends StatelessWidget {
   // final String id;
@@ -33,13 +34,13 @@ class ProductItem extends StatelessWidget {
           leading: Consumer<Product>(
             builder: (ctx, product, _) => IconButton(
               icon: Icon(
-                  product.isFavourite ? Icons.favorite : Icons.favorite_border),
+                product.isFavorite ? Icons.favorite : Icons.favorite_border,
+              ),
+              color: Theme.of(context).accentColor,
               onPressed: () {
                 product.toggleFavoriteStatus();
               },
-              color: Theme.of(context).accentColor,
             ),
-            child: Text('Never Changes!'),
           ),
           title: Text(
             product.title,
