@@ -31,6 +31,9 @@
 .pub/
 /build/
 
+# Security
+lib/security/
+
 # Android related
 **/android/**/gradle-wrapper.jar
 **/android/.gradle
