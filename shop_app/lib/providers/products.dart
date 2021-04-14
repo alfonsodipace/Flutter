@@ -68,7 +68,8 @@ class Products with ChangeNotifier {
   // }
 
   void addProduct(Product product) {
-    http.post(
+    http
+        .post(
       Uri.parse(Security.firebaseUrl),
       body: json.encode({
         'title': product.title,
@@ -77,15 +78,17 @@ class Products with ChangeNotifier {
         'imageUrl': product.imageUrl,
         'isFavourite': product.isFavorite,
       }),
-    );
-    final newProduct = Product(
-        id: DateTime.now().toString(),
-        title: product.title,
-        description: product.description,
-        price: product.price,
-        imageUrl: product.imageUrl);
-    _items.add((newProduct));
-    notifyListeners();
+    )
+        .then((response) {
+      final newProduct = Product(
+          id: json.decode(response.body)['name'],
+          title: product.title,
+          description: product.description,
+          price: product.price,
+          imageUrl: product.imageUrl);
+      _items.add((newProduct));
+      notifyListeners();
+    });
   }
 
   void updateProduct(String id, Product newProduct) {
