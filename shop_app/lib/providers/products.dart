@@ -67,8 +67,8 @@ class Products with ChangeNotifier {
   //   notifyListeners();
   // }
 
-  void addProduct(Product product) {
-    http
+  Future<void> addProduct(Product product) {
+    return http
         .post(
       Uri.parse(Security.firebaseUrl),
       body: json.encode({
